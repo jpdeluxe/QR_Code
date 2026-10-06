@@ -1,0 +1,407 @@
+{
+  "corpus": {
+    "n_registros": 5235,
+    "n_providos": 1533,
+    "n_improvidos": 3702,
+    "ementas_duplicadas": 2911,
+    "ementas_unicas": 2324,
+    "periodo": [
+      "2018-12-14",
+      "2019-04-03"
+    ],
+    "taxa_provimento_por_orgao": {
+      "1ª Câmara Cível": 0.382,
+      "2ª Câmara Cível": 0.207,
+      "3ª Câmara Cível": 0.322,
+      "Seção Especializada Cível": 0.0
+    }
+  },
+  "quadro1_replicacao": {
+    "Regressão Logística": {
+      "acuracia": 0.875,
+      "precisao": 0.913,
+      "recall": 0.791,
+      "f1": 0.826,
+      "auc": 0.962,
+      "n_atributos": 12596
+    },
+    "SVM Linear": {
+      "acuracia": 0.964,
+      "precisao": 0.97,
+      "recall": 0.943,
+      "f1": 0.955,
+      "auc": 0.987,
+      "n_atributos": 12596,
+      "cv_f1_media": 0.923,
+      "cv_f1_desvio": 0.009
+    },
+    "Naive Bayes": {
+      "acuracia": 0.84,
+      "precisao": 0.855,
+      "recall": 0.75,
+      "f1": 0.778,
+      "auc": 0.908,
+      "n_atributos": 12596
+    }
+  },
+  "matriz_confusao_svm": {
+    "VN": 735,
+    "FP": 5,
+    "FN": 33,
+    "VP": 274
+  },
+  "teste_com_gemeo_no_treino_%": 82.8,
+  "quadro4_termos": {
+    "provimento": [
+      "inversao",
+      "conhecidos acolhidos",
+      "acolhidos",
+      "extincao",
+      "anulada",
+      "retorno",
+      "sucumbencia",
+      "reforma",
+      "efeitos",
+      "retorno autos",
+      "inversao onus",
+      "efeitos infringentes"
+    ],
+    "improvimento": [
+      "manutencao",
+      "multa",
+      "materia",
+      "alegacao",
+      "inexistencia",
+      "vicios",
+      "rejeitados",
+      "sentenca recurso",
+      "saude",
+      "conhecidos rejeitados",
+      "rejeitado",
+      "estadual"
+    ]
+  },
+  "sensibilidade": {
+    "aleatoria": {
+      "n_treino": 4188,
+      "n_teste": 1047,
+      "Ementa integral": {
+        "acuracia": 0.971,
+        "precisao": 0.972,
+        "recall": 0.959,
+        "f1": 0.965,
+        "auc": 0.992,
+        "n_atributos": 12686
+      },
+      "Sem léxico dispositivo (TCC)": {
+        "acuracia": 0.964,
+        "precisao": 0.97,
+        "recall": 0.943,
+        "f1": 0.955,
+        "auc": 0.987,
+        "n_atributos": 12596
+      },
+      "Sem léxico dispositivo ampliado": {
+        "acuracia": 0.958,
+        "precisao": 0.961,
+        "recall": 0.937,
+        "f1": 0.948,
+        "auc": 0.98,
+        "n_atributos": 11941
+      },
+      "Porção inicial 40%": {
+        "acuracia": 0.915,
+        "precisao": 0.919,
+        "recall": 0.873,
+        "f1": 0.892,
+        "auc": 0.968,
+        "n_atributos": 5698
+      },
+      "Porção inicial 25%": {
+        "acuracia": 0.898,
+        "precisao": 0.897,
+        "recall": 0.851,
+        "f1": 0.869,
+        "auc": 0.94,
+        "n_atributos": 3567
+      },
+      "Porção inicial 10%": {
+        "acuracia": 0.806,
+        "precisao": 0.789,
+        "recall": 0.714,
+        "f1": 0.735,
+        "auc": 0.85,
+        "n_atributos": 1237
+      },
+      "Somente metadados (órgão + relator)": {
+        "acuracia": 0.577,
+        "precisao": 0.561,
+        "recall": 0.573,
+        "f1": 0.55,
+        "auc": 0.59
+      }
+    },
+    "dedup": {
+      "n_treino": 1859,
+      "n_teste": 465,
+      "Ementa integral": {
+        "acuracia": 0.897,
+        "precisao": 0.884,
+        "recall": 0.853,
+        "f1": 0.867,
+        "auc": 0.939,
+        "n_atributos": 6180
+      },
+      "Sem léxico dispositivo (TCC)": {
+        "acuracia": 0.865,
+        "precisao": 0.84,
+        "recall": 0.814,
+        "f1": 0.825,
+        "auc": 0.894,
+        "n_atributos": 6121
+      },
+      "Sem léxico dispositivo ampliado": {
+        "acuracia": 0.813,
+        "precisao": 0.773,
+        "recall": 0.743,
+        "f1": 0.755,
+        "auc": 0.849,
+        "n_atributos": 5760
+      },
+      "Porção inicial 40%": {
+        "acuracia": 0.746,
+        "precisao": 0.68,
+        "recall": 0.659,
+        "f1": 0.667,
+        "auc": 0.747,
+        "n_atributos": 2908
+      },
+      "Porção inicial 25%": {
+        "acuracia": 0.712,
+        "precisao": 0.626,
+        "recall": 0.602,
+        "f1": 0.608,
+        "auc": 0.707,
+        "n_atributos": 1856
+      },
+      "Porção inicial 10%": {
+        "acuracia": 0.703,
+        "precisao": 0.592,
+        "recall": 0.554,
+        "f1": 0.551,
+        "auc": 0.641,
+        "n_atributos": 651
+      },
+      "Somente metadados (órgão + relator)": {
+        "acuracia": 0.57,
+        "precisao": 0.558,
+        "recall": 0.572,
+        "f1": 0.542,
+        "auc": 0.581
+      }
+    },
+    "temporal": {
+      "n_treino": 1859,
+      "n_teste": 465,
+      "Ementa integral": {
+        "acuracia": 0.886,
+        "precisao": 0.863,
+        "recall": 0.82,
+        "f1": 0.839,
+        "auc": 0.926,
+        "n_atributos": 6355
+      },
+      "Sem léxico dispositivo (TCC)": {
+        "acuracia": 0.834,
+        "precisao": 0.797,
+        "recall": 0.729,
+        "f1": 0.752,
+        "auc": 0.874,
+        "n_atributos": 6292
+      },
+      "Sem léxico dispositivo ampliado": {
+        "acuracia": 0.802,
+        "precisao": 0.741,
+        "recall": 0.687,
+        "f1": 0.705,
+        "auc": 0.823,
+        "n_atributos": 5916
+      },
+      "Porção inicial 40%": {
+        "acuracia": 0.746,
+        "precisao": 0.65,
+        "recall": 0.63,
+        "f1": 0.637,
+        "auc": 0.714,
+        "n_atributos": 2947
+      },
+      "Porção inicial 25%": {
+        "acuracia": 0.742,
+        "precisao": 0.639,
+        "recall": 0.612,
+        "f1": 0.621,
+        "auc": 0.671,
+        "n_atributos": 1882
+      },
+      "Porção inicial 10%": {
+        "acuracia": 0.735,
+        "precisao": 0.614,
+        "recall": 0.573,
+        "f1": 0.578,
+        "auc": 0.577,
+        "n_atributos": 662
+      },
+      "Somente metadados (órgão + relator)": {
+        "acuracia": 0.57,
+        "precisao": 0.516,
+        "recall": 0.521,
+        "f1": 0.506,
+        "auc": 0.53
+      }
+    }
+  },
+  "baseline_majoritaria_temporal": {
+    "acuracia": 0.751,
+    "precisao": 0.375,
+    "recall": 0.5,
+    "f1": 0.429
+  },
+  "periodo_temporal": {
+    "treino": [
+      "2018-12-14",
+      "2019-03-21"
+    ],
+    "teste": [
+      "2019-03-21",
+      "2019-04-03"
+    ]
+  },
+  "calibracao_temporal": {
+    "brier_bruta": 0.127,
+    "brier_calibrada": 0.111,
+    "ece_bruta": 0.1205,
+    "ece_calibrada": 0.0279
+  },
+  "ahp": {
+    "matriz (custo, tempo, prob)": [
+      [
+        1,
+        3,
+        5
+      ],
+      [
+        0.333,
+        1,
+        2
+      ],
+      [
+        0.2,
+        0.5,
+        1
+      ]
+    ],
+    "pesos": {
+      "custo": 0.648,
+      "tempo": 0.23,
+      "prob_exito": 0.122
+    },
+    "lambda_max": 3.0037,
+    "RC": 0.0032
+  },
+  "topsis": {
+    "matriz_reconstruida": [
+      [
+        2.0,
+        3.0,
+        0.2
+      ],
+      [
+        12.0,
+        12.0,
+        0.6
+      ],
+      [
+        30.0,
+        34.0,
+        0.78
+      ]
+    ],
+    "coef_proximidade": {
+      "Não recorrer": 0.894,
+      "Propor acordo": 0.65,
+      "Prosseguir no litígio": 0.106
+    }
+  },
+  "topsis_sensibilidade": {
+    "peso_prob_em_que_cada_alternativa_lidera": {
+      "Não recorrer": 0.0,
+      "Propor acordo": 0.38,
+      "Prosseguir no litígio": 0.72
+    }
+  },
+  "topsis_prosseguir_lidera_com_pesos_tcc_para_p": "nunca",
+  "quadro6_recalculo": [
+    {
+      "index": "Caso 1",
+      "p_perda": 0.0,
+      "valor_risco": 120.0,
+      "provisao_esperada": 0.48,
+      "provisao_binaria": 0.0
+    },
+    {
+      "index": "Caso 2",
+      "p_perda": 0.36,
+      "valor_risco": 80.0,
+      "provisao_esperada": 28.72,
+      "provisao_binaria": 0.0
+    },
+    {
+      "index": "Caso 3",
+      "p_perda": 0.8,
+      "valor_risco": 250.0,
+      "provisao_esperada": 201.25,
+      "provisao_binaria": 250.0
+    },
+    {
+      "index": "Caso 4",
+      "p_perda": 0.93,
+      "valor_risco": 45.0,
+      "provisao_esperada": 41.72,
+      "provisao_binaria": 45.0
+    },
+    {
+      "index": "Caso 5",
+      "p_perda": 1.0,
+      "valor_risco": 300.0,
+      "provisao_esperada": 298.8,
+      "provisao_binaria": 300.0
+    },
+    {
+      "index": "Total",
+      "p_perda": NaN,
+      "valor_risco": 795.0,
+      "provisao_esperada": 570.96,
+      "provisao_binaria": 595.0
+    }
+  ],
+  "backtest_provisao_temporal": {
+    "LR_bruta": {
+      "perda_real": 56492.47,
+      "provisao_valor_esperado": 54691.88,
+      "erro_total_valor_esperado_%": -3.19,
+      "erro_medio_caso_valor_esperado": 47.18,
+      "provisao_binaria": 67488.14,
+      "erro_total_binaria_%": 19.46,
+      "erro_medio_caso_binaria": 26.99
+    },
+    "LR_calibrada": {
+      "perda_real": 56492.47,
+      "provisao_valor_esperado": 55746.39,
+      "erro_total_valor_esperado_%": -1.32,
+      "erro_medio_caso_valor_esperado": 37.11,
+      "provisao_binaria": 63016.46,
+      "erro_total_binaria_%": 11.55,
+      "erro_medio_caso_binaria": 23.68
+    }
+  }
+}
