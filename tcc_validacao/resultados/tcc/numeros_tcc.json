@@ -1,0 +1,336 @@
+{
+  "n_total": 5235,
+  "n_unicas": 2324,
+  "camaras": {
+    "1ª Câmara Cível": [
+      0.342,
+      497
+    ],
+    "2ª Câmara Cível": [
+      0.219,
+      862
+    ],
+    "3ª Câmara Cível": [
+      0.302,
+      956
+    ]
+  },
+  "n_treino": 1859,
+  "n_teste": 465,
+  "quadro1": {
+    "Regressão Logística": {
+      "acuracia": 0.796,
+      "precisao": 0.837,
+      "recall": 0.646,
+      "f1": 0.666,
+      "auc": 0.883,
+      "n_atributos": 6121,
+      "cv_f1_media": 0.637,
+      "cv_f1_desvio": 0.012
+    },
+    "SVM Linear": {
+      "acuracia": 0.865,
+      "precisao": 0.84,
+      "recall": 0.814,
+      "f1": 0.825,
+      "auc": 0.894,
+      "n_atributos": 6121,
+      "cv_f1_media": 0.756,
+      "cv_f1_desvio": 0.028
+    },
+    "Naive Bayes": {
+      "acuracia": 0.772,
+      "precisao": 0.762,
+      "recall": 0.621,
+      "f1": 0.632,
+      "auc": 0.825,
+      "n_atributos": 6121,
+      "cv_f1_media": 0.621,
+      "cv_f1_desvio": 0.026
+    }
+  },
+  "n_atributos": 6121,
+  "confusao": {
+    "VN": 311,
+    "FP": 24,
+    "FN": 39,
+    "VP": 91
+  },
+  "temporal": {
+    "n_treino": 1859,
+    "n_teste": 465,
+    "teste_inicio": "2019-03-21",
+    "teste_fim": "2019-04-03"
+  },
+  "quadro2": {
+    "Ementa integral": {
+      "aleatoria_com_dup": {
+        "acuracia": 0.971,
+        "precisao": 0.972,
+        "recall": 0.959,
+        "f1": 0.965,
+        "auc": 0.992,
+        "n_atributos": 12686
+      },
+      "dedup": {
+        "acuracia": 0.897,
+        "precisao": 0.884,
+        "recall": 0.853,
+        "f1": 0.867,
+        "auc": 0.939,
+        "n_atributos": 6180
+      },
+      "temporal": {
+        "acuracia": 0.886,
+        "precisao": 0.863,
+        "recall": 0.82,
+        "f1": 0.839,
+        "auc": 0.926,
+        "n_atributos": 6355
+      }
+    },
+    "Sem léxico (TCC)": {
+      "aleatoria_com_dup": {
+        "acuracia": 0.964,
+        "precisao": 0.97,
+        "recall": 0.943,
+        "f1": 0.955,
+        "auc": 0.987,
+        "n_atributos": 12596
+      },
+      "dedup": {
+        "acuracia": 0.865,
+        "precisao": 0.84,
+        "recall": 0.814,
+        "f1": 0.825,
+        "auc": 0.894,
+        "n_atributos": 6121
+      },
+      "temporal": {
+        "acuracia": 0.834,
+        "precisao": 0.797,
+        "recall": 0.729,
+        "f1": 0.752,
+        "auc": 0.874,
+        "n_atributos": 6292
+      }
+    },
+    "Sem léxico ampliado": {
+      "aleatoria_com_dup": {
+        "acuracia": 0.958,
+        "precisao": 0.961,
+        "recall": 0.937,
+        "f1": 0.948,
+        "auc": 0.98,
+        "n_atributos": 11941
+      },
+      "dedup": {
+        "acuracia": 0.813,
+        "precisao": 0.773,
+        "recall": 0.743,
+        "f1": 0.755,
+        "auc": 0.849,
+        "n_atributos": 5760
+      },
+      "temporal": {
+        "acuracia": 0.802,
+        "precisao": 0.741,
+        "recall": 0.687,
+        "f1": 0.705,
+        "auc": 0.823,
+        "n_atributos": 5916
+      }
+    },
+    "40%": {
+      "aleatoria_com_dup": {
+        "acuracia": 0.915,
+        "precisao": 0.919,
+        "recall": 0.873,
+        "f1": 0.892,
+        "auc": 0.968,
+        "n_atributos": 5698
+      },
+      "dedup": {
+        "acuracia": 0.746,
+        "precisao": 0.68,
+        "recall": 0.659,
+        "f1": 0.667,
+        "auc": 0.747,
+        "n_atributos": 2908
+      },
+      "temporal": {
+        "acuracia": 0.746,
+        "precisao": 0.65,
+        "recall": 0.63,
+        "f1": 0.637,
+        "auc": 0.714,
+        "n_atributos": 2947
+      }
+    },
+    "25%": {
+      "aleatoria_com_dup": {
+        "acuracia": 0.898,
+        "precisao": 0.897,
+        "recall": 0.851,
+        "f1": 0.869,
+        "auc": 0.94,
+        "n_atributos": 3567
+      },
+      "dedup": {
+        "acuracia": 0.712,
+        "precisao": 0.626,
+        "recall": 0.602,
+        "f1": 0.608,
+        "auc": 0.707,
+        "n_atributos": 1856
+      },
+      "temporal": {
+        "acuracia": 0.742,
+        "precisao": 0.639,
+        "recall": 0.612,
+        "f1": 0.621,
+        "auc": 0.671,
+        "n_atributos": 1882
+      }
+    }
+  },
+  "metadados": {
+    "dedup": {
+      "acuracia": 0.57,
+      "precisao": 0.558,
+      "recall": 0.572,
+      "f1": 0.542,
+      "auc": 0.581
+    },
+    "temporal": {
+      "acuracia": 0.57,
+      "precisao": 0.516,
+      "recall": 0.521,
+      "f1": 0.506,
+      "auc": 0.53
+    }
+  },
+  "gemeos_teste_%": 82.8,
+  "quadro4": {
+    "provimento": [
+      "inversao",
+      "anulada",
+      "efeitos",
+      "acolhidos",
+      "reforma",
+      "sentenca anulada",
+      "extincao",
+      "sucumbencia",
+      "efeitos infringentes",
+      "conhecidos acolhidos"
+    ],
+    "improvimento": [
+      "manutencao",
+      "materia",
+      "inexistencia",
+      "multa",
+      "rejeitados",
+      "rejeitado",
+      "vicios",
+      "conhecidos rejeitados",
+      "alegacao",
+      "estadual"
+    ]
+  },
+  "ahp": {
+    "pesos": [
+      0.648,
+      0.23,
+      0.122
+    ],
+    "rc": 0.0032
+  },
+  "topsis": {
+    "Não recorrer": 0.894,
+    "Propor acordo": 0.65,
+    "Prosseguir no litígio": 0.106
+  },
+  "lideres": {
+    "Não recorrer": 0.0,
+    "Propor acordo": 0.38,
+    "Prosseguir no litígio": 0.72
+  },
+  "calibracao": {
+    "brier_bruta": 0.127,
+    "brier_calibrada": 0.111,
+    "ece_bruta": 0.1205,
+    "ece_calibrada": 0.0279
+  },
+  "perda_acima_50_%": 84.7,
+  "quadro6": [
+    {
+      "index": "Caso 1",
+      "p_perda": 0.05,
+      "valor_risco": 120.0,
+      "provisao_esperada": 6.0,
+      "provisao_binaria": 0.0
+    },
+    {
+      "index": "Caso 2",
+      "p_perda": 0.348,
+      "valor_risco": 80.0,
+      "provisao_esperada": 27.8,
+      "provisao_binaria": 0.0
+    },
+    {
+      "index": "Caso 3",
+      "p_perda": 0.746,
+      "valor_risco": 250.0,
+      "provisao_esperada": 186.5,
+      "provisao_binaria": 250.0
+    },
+    {
+      "index": "Caso 4",
+      "p_perda": 0.9,
+      "valor_risco": 45.0,
+      "provisao_esperada": 40.5,
+      "provisao_binaria": 45.0
+    },
+    {
+      "index": "Caso 5",
+      "p_perda": 0.971,
+      "valor_risco": 300.0,
+      "provisao_esperada": 291.3,
+      "provisao_binaria": 300.0
+    },
+    {
+      "index": "Total",
+      "p_perda": NaN,
+      "valor_risco": 795.0,
+      "provisao_esperada": 552.1,
+      "provisao_binaria": 595.0
+    }
+  ],
+  "quadro6_desfecho_real": [
+    "êxito",
+    "perda",
+    "perda",
+    "perda",
+    "perda"
+  ],
+  "backtest": {
+    "bruta": {
+      "perda_real": 56492.47,
+      "provisao_valor_esperado": 54691.88,
+      "erro_total_valor_esperado_%": -3.19,
+      "erro_medio_caso_valor_esperado": 47.18,
+      "provisao_binaria": 67488.14,
+      "erro_total_binaria_%": 19.46,
+      "erro_medio_caso_binaria": 26.99
+    },
+    "calibrada": {
+      "perda_real": 56492.47,
+      "provisao_valor_esperado": 55746.39,
+      "erro_total_valor_esperado_%": -1.32,
+      "erro_medio_caso_valor_esperado": 37.11,
+      "provisao_binaria": 63016.46,
+      "erro_total_binaria_%": 11.55,
+      "erro_medio_caso_binaria": 23.68
+    }
+  }
+}
