@@ -256,81 +256,84 @@
     "Prosseguir no litígio": 0.72
   },
   "calibracao": {
-    "brier_bruta": 0.127,
-    "brier_calibrada": 0.111,
-    "ece_bruta": 0.1205,
-    "ece_calibrada": 0.0279
+    "n_ajuste": 1394,
+    "n_validacao": 465,
+    "n_teste": 465,
+    "brier_bruta": 0.134,
+    "brier_calibrada": 0.1171,
+    "ece_bruta": 0.1057,
+    "ece_calibrada": 0.0143
   },
-  "perda_acima_50_%": 84.7,
+  "perda_acima_50_%": 82.8,
   "quadro6": [
     {
       "index": "Caso 1",
-      "p_perda": 0.05,
+      "p_perda": 0.0,
       "valor_risco": 120.0,
-      "provisao_esperada": 6.0,
+      "provisao_esperada": 0.0,
       "provisao_binaria": 0.0
     },
     {
       "index": "Caso 2",
-      "p_perda": 0.348,
+      "p_perda": 0.407,
       "valor_risco": 80.0,
-      "provisao_esperada": 27.8,
+      "provisao_esperada": 32.6,
       "provisao_binaria": 0.0
     },
     {
       "index": "Caso 3",
-      "p_perda": 0.746,
+      "p_perda": 0.786,
       "valor_risco": 250.0,
-      "provisao_esperada": 186.5,
+      "provisao_esperada": 196.5,
       "provisao_binaria": 250.0
     },
     {
       "index": "Caso 4",
-      "p_perda": 0.9,
+      "p_perda": 0.887,
       "valor_risco": 45.0,
-      "provisao_esperada": 40.5,
+      "provisao_esperada": 39.9,
       "provisao_binaria": 45.0
     },
     {
       "index": "Caso 5",
-      "p_perda": 0.971,
+      "p_perda": 0.958,
       "valor_risco": 300.0,
-      "provisao_esperada": 291.3,
+      "provisao_esperada": 287.4,
       "provisao_binaria": 300.0
     },
     {
       "index": "Total",
       "p_perda": NaN,
       "valor_risco": 795.0,
-      "provisao_esperada": 552.1,
+      "provisao_esperada": 556.4,
       "provisao_binaria": 595.0
     }
   ],
   "quadro6_desfecho_real": [
     "êxito",
     "perda",
-    "perda",
+    "êxito",
     "perda",
     "perda"
   ],
   "backtest": {
     "bruta": {
       "perda_real": 56492.47,
-      "provisao_valor_esperado": 54691.88,
-      "erro_total_valor_esperado_%": -3.19,
-      "erro_medio_caso_valor_esperado": 47.18,
-      "provisao_binaria": 67488.14,
-      "erro_total_binaria_%": 19.46,
-      "erro_medio_caso_binaria": 26.99
+      "provisao_valor_esperado": 53953.83,
+      "erro_total_valor_esperado_%": -4.49,
+      "erro_medio_caso_valor_esperado": 49.76,
+      "provisao_binaria": 68533.85,
+      "erro_total_binaria_%": 21.32,
+      "erro_medio_caso_binaria": 28.0
     },
     "calibrada": {
       "perda_real": 56492.47,
-      "provisao_valor_esperado": 55746.39,
-      "erro_total_valor_esperado_%": -1.32,
-      "erro_medio_caso_valor_esperado": 37.11,
-      "provisao_binaria": 63016.46,
-      "erro_total_binaria_%": 11.55,
-      "erro_medio_caso_binaria": 23.68
+      "provisao_valor_esperado": 56217.02,
+      "erro_total_valor_esperado_%": -0.49,
+      "erro_medio_caso_valor_esperado": 37.12,
+      "provisao_binaria": 61729.02,
+      "erro_total_binaria_%": 9.27,
+      "erro_medio_caso_binaria": 26.35
     }
   }
 }

@@ -121,16 +121,19 @@ Isso atende ao trabalho futuro (iv) do TCC (sensibilidade dos pesos do AHP).
 
 ### 2.6 Calibração e provisão (backtest)
 
-No teste temporal (465 acórdãos, valores em risco hipotéticos U(20, 300) mil):
+Três conjuntos disjuntos, em ordem cronológica: a Regressão Logística é
+treinada nos 1.394 acórdãos mais antigos; a isotônica é ajustada nos 465
+seguintes (validação); Brier, ECE e provisão são medidos só no teste
+temporal (465 acórdãos, valores em risco hipotéticos U(20, 300) mil):
 
 | | Brier | ECE | Erro da provisão total — valor esperado | Erro — regra binária |
 |---|---|---|---|---|
-| LR bruta | 0,127 | 0,121 | −3,2% | +19,5% |
-| LR calibrada (isotônica) | 0,111 | 0,028 | **−1,3%** | +11,6% |
+| LR bruta | 0,134 | 0,106 | −4,5% | +21,3% |
+| LR calibrada (isotônica) | 0,117 | 0,014 | **−0,5%** | +9,3% |
 
 - A provisão por valor esperado acerta o total da carteira muito melhor que a
-  regra binária (que superprovisiona ~12–20%). **Confirma a tese do TCC com dado real.**
-- Calibração isotônica reduz o ECE em ~4x.
+  regra binária (que superprovisiona ~9–21%). **Confirma a tese do TCC com dado real.**
+- Calibração isotônica reduz o ECE em ~7x.
 - Obs.: no teste temporal a LR bruta é **subconfiante** (não superconfiante,
   como o TCC sugere). Os extremos 0,004/0,996 do Quadro 6 vêm do split com
   duplicatas.
@@ -156,8 +159,8 @@ No teste temporal (465 acórdãos, valores em risco hipotéticos U(20, 300) mil)
 6. **Quadro 5:** publicar a matriz de decisão do TOPSIS (custo, tempo, p de
    cada alternativa) e incluir a tabela de sensibilidade 2.5 — tirar o item
    (iv) dos trabalhos futuros.
-7. **Provisionamento:** incluir o backtest 2.6 (valor esperado −1,3% x binária
-   +11,6%) como evidência empírica; ajustar 570,8 → 571,0 (ou dizer que usa
+7. **Provisionamento:** incluir o backtest 2.6 (valor esperado −0,5% x binária
+   +9,3%) como evidência empírica; ajustar 570,8 → 571,0 (ou dizer que usa
    probabilidades sem arredondamento).
-8. **Calibração:** sair de "recomenda-se" para resultado: Brier 0,127 → 0,111,
-   ECE 0,121 → 0,028.
+8. **Calibração:** sair de "recomenda-se" para resultado: Brier 0,134 → 0,117,
+   ECE 0,106 → 0,014.

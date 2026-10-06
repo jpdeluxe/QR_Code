@@ -30,12 +30,12 @@ secao("1. Corpus")
 df = dados.carregar_corpus()
 sw = dados.carregar_stopwords()
 df["txt_integral"] = df["ementa_text"].map(lambda t: dados.normalizar(t, sw))
-df["txt_sem_lexico"] = df["ementa_text"].map(lambda t: dados.normalizar(t, sw, dados.LEXICO_TCC))
+df["txt_sem_lexico"] = df["ementa_text"].map(lambda t: dados.normalizar(t, sw, dados.LEXICO_BASICO))
 df["txt_sem_lexico_ampliado"] = df["ementa_text"].map(
     lambda t: dados.normalizar(t, sw, dados.LEXICO_AMPLIADO))
 for f in (0.40, 0.25, 0.10):
     df[f"txt_inicio_{int(f * 100)}"] = df["ementa_text"].map(
-        lambda t: dados.normalizar(dados.porcao_inicial(t, f), sw, dados.LEXICO_TCC))
+        lambda t: dados.normalizar(dados.porcao_inicial(t, f), sw, dados.LEXICO_BASICO))
 
 dup = int(df["ementa_text"].duplicated().sum())
 taxa_camara = df.groupby("orgao_julgador")["y"].mean().round(3).to_dict()

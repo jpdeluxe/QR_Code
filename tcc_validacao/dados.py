@@ -1,7 +1,7 @@
 """Carga e preparação do corpus TJAL (Lage-Freitas et al., 2022).
 
-Reproduz o recorte descrito no TCC: acórdãos de órgãos cíveis com desfecho
-binário (provido = 1 / improvido = 0), totalizando 5.235 registros.
+Recorte: acórdãos de órgãos cíveis com desfecho binário
+(provido = 1 / improvido = 0), totalizando 5.235 registros.
 """
 import io
 import re
@@ -19,18 +19,18 @@ URL_DATASET = (
 PASTA_DADOS = Path(__file__).parent / "dados"
 CSV_LOCAL = PASTA_DADOS / "dataset.csv"
 
-# Léxico dispositivo "básico" (o descrito no TCC: provido, negado, mantido...)
-LEXICO_TCC = [
+# Léxico dispositivo básico: termos que explicitam o veredicto
+LEXICO_BASICO = [
     "provido", "provida", "providos", "providas", "improvido", "improvida",
     "improvidos", "desprovido", "desprovida", "provimento", "desprovimento",
     "improvimento", "negado", "negada", "negados", "nego", "mantido",
     "mantida", "mantidos", "reformada", "reformado", "procedente",
     "improcedente", "procedencia", "improcedencia", "parcialmente",
 ]
-# Léxico "ampliado": inclui marcadores que o Quadro 4 do TCC mostra que
-# sobreviveram à limpeza (acolhidos, manutenção, extinção...) e termos de
+# Léxico ampliado: acrescenta marcadores dispositivos que sobreviveram ao
+# léxico básico (acolhidos, rejeitados, manutenção, extinção...) e termos de
 # quórum/dispositivo do acórdão.
-LEXICO_AMPLIADO = LEXICO_TCC + [
+LEXICO_AMPLIADO = LEXICO_BASICO + [
     "acolhido", "acolhida", "acolhidos", "acolhidas", "rejeitado",
     "rejeitada", "rejeitados", "rejeitadas", "conhecido", "conhecida",
     "conhecidos", "conhecidas", "unanimidade", "unanime", "maioria",
@@ -55,7 +55,7 @@ def baixar_dataset() -> Path:
 
 
 def carregar_corpus() -> pd.DataFrame:
-    """Retorna o corpus binário de órgãos cíveis (5.235 linhas, como no TCC).
+    """Retorna o corpus binário de órgãos cíveis (5.235 linhas).
 
     Observação: em ~18 linhas da 'Seção Especializada Cível' o CSV vem com as
     colunas deslocadas; o rótulo correto está em 'decision_label' mesmo assim.

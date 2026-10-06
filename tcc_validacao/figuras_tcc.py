@@ -34,12 +34,12 @@ def salvar(nome):
 
 df = dados.carregar_corpus()
 sw = dados.carregar_stopwords()
-df["txt"] = df["ementa_text"].map(lambda t: dados.normalizar(t, sw, dados.LEXICO_TCC))
+df["txt"] = df["ementa_text"].map(lambda t: dados.normalizar(t, sw, dados.LEXICO_BASICO))
 df["txt_integral"] = df["ementa_text"].map(lambda t: dados.normalizar(t, sw))
 df["txt_amp"] = df["ementa_text"].map(lambda t: dados.normalizar(t, sw, dados.LEXICO_AMPLIADO))
 for f in (0.40, 0.25):
     df[f"txt_{int(f * 100)}"] = df["ementa_text"].map(
-        lambda t: dados.normalizar(dados.porcao_inicial(t, f), sw, dados.LEXICO_TCC))
+        lambda t: dados.normalizar(dados.porcao_inicial(t, f), sw, dados.LEXICO_BASICO))
 base = df.drop_duplicates("ementa_text")
 N["n_total"], N["n_unicas"] = len(df), len(base)
 

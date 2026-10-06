@@ -1,7 +1,7 @@
 """Modelagem preditiva: TF-IDF + LR / SVM linear / Naive Bayes."""
 import numpy as np
-from sklearn.calibration import CalibratedClassifierCV
 from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.isotonic import IsotonicRegression
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score, brier_score_loss, confusion_matrix, f1_score,
@@ -17,8 +17,7 @@ SEED = 42
 
 
 def vetorizador():
-    # n-gramas de 1 e 2 palavras; min_df=5 gera ~12,6 mil atributos,
-    # mesma ordem de grandeza dos 13.916 relatados no TCC.
+    # n-gramas de 1 e 2 palavras presentes em ao menos 5 documentos.
     return TfidfVectorizer(ngram_range=(1, 2), min_df=5)
 
 
@@ -51,7 +50,7 @@ def metricas(y, y_pred, s=None):
 def particao(df, modo):
     """Retorna (treino, teste).
 
-    - 'aleatoria': estratificada 80/20, como no TCC (com duplicatas).
+    - 'aleatoria': estratificada 80/20 sobre o arquivo original (com duplicatas).
     - 'dedup': remove ementas duplicadas antes da partição aleatória.
     - 'temporal': sem duplicatas; 80% mais antigos treinam, 20% mais recentes testam.
     """
@@ -112,22 +111,28 @@ def ece(y, p, bins=10):
     ))
 
 
-def calibracao(treino, teste, coluna):
-    """Compara LR bruta vs. calibrada (isotônica, CV interna) em Brier e ECE."""
-    bruta = make_pipeline(vetorizador(), LogisticRegression(max_iter=2000, random_state=SEED))
-    bruta.fit(treino[coluna], treino["y"])
-    p_bruta = bruta.predict_proba(teste[coluna])[:, 1]
+def calibracao(treino, teste, coluna, frac_validacao=0.25):
+    """Compara LR bruta vs. calibrada (isotônica) em Brier e ECE.
 
-    cal = make_pipeline(
-        vetorizador(),
-        CalibratedClassifierCV(
-            LogisticRegression(max_iter=2000, random_state=SEED), method="isotonic", cv=5
-        ),
-    )
-    cal.fit(treino[coluna], treino["y"])
-    p_cal = cal.predict_proba(teste[coluna])[:, 1]
+    Três conjuntos disjuntos e em ordem cronológica (o treino deve vir
+    ordenado por data, como na partição temporal):
+      - ajuste: 75% mais antigos do treino -> treina a Regressão Logística;
+      - validação: 25% mais recentes do treino -> ajusta a isotônica;
+      - teste: nunca usado em ajuste, só para medir Brier/ECE e a provisão.
+    """
+    corte = int(len(treino) * (1 - frac_validacao))
+    ajuste, validacao = treino.iloc[:corte], treino.iloc[corte:]
+
+    lr = make_pipeline(vetorizador(), LogisticRegression(max_iter=2000, random_state=SEED))
+    lr.fit(ajuste[coluna], ajuste["y"])
+    iso = IsotonicRegression(out_of_bounds="clip", y_min=0, y_max=1)
+    iso.fit(lr.predict_proba(validacao[coluna])[:, 1], validacao["y"])
+
+    p_bruta = lr.predict_proba(teste[coluna])[:, 1]
+    p_cal = iso.predict(p_bruta)
     y = teste["y"].to_numpy()
     return {
+        "n_ajuste": len(ajuste), "n_validacao": len(validacao), "n_teste": len(teste),
         "brier_bruta": round(float(brier_score_loss(y, p_bruta)), 4),
         "brier_calibrada": round(float(brier_score_loss(y, p_cal)), 4),
         "ece_bruta": round(ece(y, p_bruta), 4),

@@ -277,10 +277,13 @@
     ]
   },
   "calibracao_temporal": {
-    "brier_bruta": 0.127,
-    "brier_calibrada": 0.111,
-    "ece_bruta": 0.1205,
-    "ece_calibrada": 0.0279
+    "n_ajuste": 1394,
+    "n_validacao": 465,
+    "n_teste": 465,
+    "brier_bruta": 0.134,
+    "brier_calibrada": 0.1171,
+    "ece_bruta": 0.1057,
+    "ece_calibrada": 0.0143
   },
   "ahp": {
     "matriz (custo, tempo, prob)": [
@@ -387,21 +390,21 @@
   "backtest_provisao_temporal": {
     "LR_bruta": {
       "perda_real": 56492.47,
-      "provisao_valor_esperado": 54691.88,
-      "erro_total_valor_esperado_%": -3.19,
-      "erro_medio_caso_valor_esperado": 47.18,
-      "provisao_binaria": 67488.14,
-      "erro_total_binaria_%": 19.46,
-      "erro_medio_caso_binaria": 26.99
+      "provisao_valor_esperado": 53953.83,
+      "erro_total_valor_esperado_%": -4.49,
+      "erro_medio_caso_valor_esperado": 49.76,
+      "provisao_binaria": 68533.85,
+      "erro_total_binaria_%": 21.32,
+      "erro_medio_caso_binaria": 28.0
     },
     "LR_calibrada": {
       "perda_real": 56492.47,
-      "provisao_valor_esperado": 55746.39,
-      "erro_total_valor_esperado_%": -1.32,
-      "erro_medio_caso_valor_esperado": 37.11,
-      "provisao_binaria": 63016.46,
-      "erro_total_binaria_%": 11.55,
-      "erro_medio_caso_binaria": 23.68
+      "provisao_valor_esperado": 56217.02,
+      "erro_total_valor_esperado_%": -0.49,
+      "erro_medio_caso_valor_esperado": 37.12,
+      "provisao_binaria": 61729.02,
+      "erro_total_binaria_%": 9.27,
+      "erro_medio_caso_binaria": 26.35
     }
   }
 }
